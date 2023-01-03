@@ -1,10 +1,4 @@
-import mongoose from "mongoose";
-
-const options = {
-    useUnifiedTopology : true,
-
-    useNewUrlParser: true
-}
+import mongoose from 'mongoose'
 
 mongoose.set('strictQuery', false)
 mongoose.connect(process.env.MONGO_URI)
