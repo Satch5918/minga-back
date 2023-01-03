@@ -1,9 +1,11 @@
 import 'dotenv/config.js'
-import createError from 'http-errors';
+import './config/database.js' //requiero la configuracion de la db
+import cors from 'cors' //middleware que me da permisos para trabajar con diferentes servidores
 import express from 'express';
 import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
+import indexRouter from './routes/index.js' //rutas de index
 import { __dirname } from './utils.js'
 import indexRouter from './routes/index.js';
 
@@ -14,6 +16,7 @@ let app = express();
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
 
+app.use(cors())
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
