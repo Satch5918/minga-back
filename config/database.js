@@ -6,6 +6,7 @@ const options = {
     useNewUrlParser: true
 }
 
-mongoose.connect(process.env.MONGO_URI, options)
-    .then(() => console.log('Database connected'))
-    .catch (err => console.log(err))
+mongoose.set('strictQuery', false)
+mongoose.connect(process.env.MONGO_URI)
+    .then(() => console.log('database connected'))
+    .catch(err => console.log(err))
