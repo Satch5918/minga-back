@@ -1,5 +1,5 @@
 import 'dotenv/config.js'
-import '../../config/database'
+import '../../config/database.js'
 import {Comments} from '../NewComent.js'
 
 let coments = [ { chapter_id:"63ac47d8b4db2f7baacad498",
