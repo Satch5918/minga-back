@@ -7,7 +7,7 @@ import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 import indexRouter from './routes/index.js' //rutas de index
 import { __dirname } from './utils.js'
-import indexRouter from './routes/index.js';
+
 
 
 let app = express();
