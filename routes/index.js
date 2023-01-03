@@ -1,4 +1,5 @@
 import users from './users.route.js'
+import companies from './companies.route.js'
 import express from 'express'
 let router = express.Router()
 
@@ -8,5 +9,6 @@ router.get('/', function(req, res, next) {
 })
 
 router.use('/auth',users)
+router.use('/companies', companies)
 
 export default router
