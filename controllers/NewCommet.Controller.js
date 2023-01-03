@@ -66,11 +66,11 @@ export const deleteComment = async (req, res) => {
   
 
 const controller = {
-  create: async () => {},
-  read: async () => {},
-  one : async () => {},
-  update: async () => {},
-  destroy: async () => {},
+  create: async (req, res) => {},
+  read: async (req, res) => {},
+  one : async (req, res) => {},
+  update: async (req, res) => {},
+  destroy: async (req, res) => {},
 
   
 }
