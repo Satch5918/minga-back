@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import { ObjectId } from "mongoose";
 
 const chapterSchema = new mongoose.Schema({
     comic_id: {type: mongoose.Types.ObjectId, required: true},
