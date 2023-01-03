@@ -1,13 +1,9 @@
-import mongoose from 'mongoose';
-import express  from 'express';
-const router = express.Router();
-import { Router } from 'express';
-import  Comments from '../controllers/NewCommet.Controller'
+import express from 'express';
+let router = express.Router();
 
-router.post('/comments', Comments,createComment);
+/* GET users listing. */
+router.get('/', function(req, res, next) {
+  res.send('respond with a resource');
+});
 
-
-
-
-
-router.post('/newModel/', createNewModel);
+export default router;
