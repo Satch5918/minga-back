@@ -1,13 +1,14 @@
 import {Comic} from "../models/Comic.js"
 
+
 const controller = {
     create: async (req, res) => {
         try {
-            let comic = await Comic.create(req.body)
+            const {author_id,company_id,title,photo,description,category} = req.body
+            await Comic.create({author_id,company_id,title,photo,description,category})
             res.status(201).json({
                 success: true,
-                response: 'done',
-                new_comic: comic
+                response: 'done'
             })
         } catch (error) {
             console.log(error)
