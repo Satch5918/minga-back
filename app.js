@@ -6,7 +6,7 @@ import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 import { __dirname } from './utils.js'
 import indexRouter from './routes/index.js';
-import usersRouter from './routes/users.js';
+
 
 let app = express();
 
@@ -20,7 +20,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

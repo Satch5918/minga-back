@@ -5,7 +5,7 @@ let router = express.Router();
 router.get('/', function(req, res, next) {
   res.json({
     success: true,
-    response: 'users'
+    response: 'categories'
   })
 });
 
