@@ -7,7 +7,8 @@ const validator = (schema) => [
                 success: false,
                 method: req.method,
                 path: req.url,
-                response: data.error.details
+                response: data.error.details,
+            
             })
         }
         next()
