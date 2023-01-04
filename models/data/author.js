@@ -4,7 +4,7 @@ import { Author } from '../Author.js'
 
 let new_author = [{
     name:"Pepito",
-    lastname:"Cecio",
+    last_name:"Cecio",
     city:"Buenos Aires",
     country:"argentina",
     date: "1990-01-01",
