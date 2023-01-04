@@ -1,4 +1,4 @@
-import  author  from './authorroutes.js'
+import author from './author.route.js'
 import express from 'express'
 import users from './users.route.js'
 let router = express.Router()
@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
 })
 
 router.use('/auth',users)
-router.use('/author',author)
+router.use('/authors',author)
 
 
 export default router
