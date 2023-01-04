@@ -2,10 +2,10 @@ import mongoose from 'mongoose'
 const schema = new mongoose.Schema(
     {
         name: {type: String, required: true},
-        last_name:{type: String, required: false},
+        last_name:{type: String},
         city:{type:String, required: true},
         country:{type:String, requires: true},
-        date: {type: Date, required: false},
+        date: {type: Date},
         photo: {type:String, required:true},
         user_id: {type: mongoose.Types.ObjectId, ref: 'users', required: true},
         active:{type:Boolean, required:true}

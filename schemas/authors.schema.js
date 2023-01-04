@@ -6,9 +6,8 @@ const schema = Joi.object({
    city:Joi.string().min(1).max(20).required(),
    country:Joi.string().min(1).max(20).required(),
    date: Joi.date(),
-   photo:Joi.string().required(),
-   user_id:Joi.objectId().required(),
-   active:Joi.boolean().required()
+   photo:Joi.string().uri().required(),
+   user_id:Joi.objectId().required()
 })
 
 export default schema
