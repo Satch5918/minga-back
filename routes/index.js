@@ -1,5 +1,6 @@
 import comics from './comics.js'
-import categories from './categories.js'
+
+import users from './users.route.js'
 
 import express from 'express';
 
@@ -10,8 +11,9 @@ router.get('/', function(req, res, next) {
   res.send('minga server ready')
 })
 
-router.use('/api/comics', comics)
-router.use ('/categories', categories)
+router.use('/comics', comics)
+
+router.use('/auth',users)
 
 
 export default router;
