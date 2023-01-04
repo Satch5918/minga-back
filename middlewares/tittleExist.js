@@ -4,10 +4,10 @@ import defaultResponse from '../config/response.js'
 async function tittleExist(req,res,next){
     const comic = await Comic.findOne({title: req.body.title})
     if(comic){
-        res.status(400).json({
-            success: false,
-            response: 'This comic already exists'
-        })
+        req.body.success = false
+        req.body.sc = 400
+        req.body.data = 'title in use'
+        return defaultResponse(req,res)
 
     }
     return next()
