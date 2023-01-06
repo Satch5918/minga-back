@@ -5,7 +5,7 @@ import express from 'express'
 let router = express.Router();
 
 const {create} = controller;
-router.post('/',validator(schema), create)
+router.post('/',validator(schema), authorIsActive, create)
 
 
 export default router;
