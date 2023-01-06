@@ -6,7 +6,6 @@ const schema = joi.object({
     website: joi.string().required().min(4),
     description: joi.string().required().min(8).max(100),
     user_id: joi.objectId().required(),
-    active: joi.boolean().required()
 })
 
 export default schema
