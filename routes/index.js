@@ -1,6 +1,7 @@
 import comics from './comics.js'
-import categories from './categories.js'
-import users from './users.js'
+
+import users from './users.route.js'
+
 import express from 'express';
 
 let router = express.Router();
@@ -11,7 +12,8 @@ router.get('/', function(req, res, next) {
 })
 
 router.use('/comics', comics)
-router.use ('/categories', categories)
-router.use('/users', users)
+
+router.use('/auth',users)
+
 
 export default router;

@@ -1,12 +1,17 @@
 import controller from '../controllers/comics.controller.js'
+
 const { create } = controller
+
 import express from 'express';
+
 let router = express.Router();
 
+import validator from '../middlewares/validator.js'
 
+import schema from '../schemas/comic.schema.js'
 
+import tittleExist from '../middlewares/tittleExist.js'
 
-
-router.post('/',create);
+router.post('/',validator(schema),tittleExist,create);
 
 export default router;
