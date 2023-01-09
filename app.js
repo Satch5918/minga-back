@@ -23,7 +23,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use('/api', indexRouter) //nuevo middleware en ruta
-app.use(notFoundHandler)
+app.use(notFoundHandler)<
 app.use(errorHandler)
 
 export default app;
