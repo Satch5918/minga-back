@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
-    "chapter": "node ./models/data/chapter.data.js"
+    "coment": "node ./models/data/coments.data.js",
+    "user": "node ./models/data/users.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
