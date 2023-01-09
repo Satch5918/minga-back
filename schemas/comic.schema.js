@@ -6,7 +6,7 @@ const schema = Joi.object({
         'string.empty': 'please put author id'
     }),
     company_id: Joi.objectId(),
-    title: Joi.string().min(1).required().messages({
+    title: Joi.string().min(1).messages({
         'any.required': 'please put title of manga or comic',
         'string.empty': 'please put title of manga or comic'
     }),
