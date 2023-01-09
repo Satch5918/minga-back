@@ -6,7 +6,7 @@ import authorIsActive from "../middlewares/authorIsActive.js";
 let router = express.Router();
 
 const {create} = controller;
-router.post('/',validator(schema), authorIsActive, create)
+router.post('/',validator(schema), create)
 
 
 export default router;
