@@ -10,4 +10,7 @@ let router = express.Router()
 router.post('/', validator(schema), orderExists, create)
 router.get('/:comic_id/:order',get_pages)
 
-export default router
+/* router.get('/:comic_id/:order', get_pages) */ //params
+router.get('/', get_pages) //query
+
+export default router; 
