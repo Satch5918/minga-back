@@ -15,9 +15,7 @@ const controller = {
         }
     },
     get_comic_chapters:  async (req, res, next) => {
-        let consultas = {
-            comic_id : req.query.comic_id
-        }
+        let consultas = {}
         let ordenamineto = {}
         let paginacion ={
             page : 1,
