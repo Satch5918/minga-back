@@ -1,5 +1,6 @@
 import { Category } from '../models/Category.js'
 import { User } from '../models/User.js'
+import defaultResponse from "../config/response.js"
 
 const controller = {
     
@@ -16,10 +17,7 @@ const controller = {
     },
     
     read: async(req,res,next)=> {
-        //REQ ES UN OBJETO CON TOOOOOOODOS LOS REQUERIMIENTOS PARA PODER REALIZAR LA OPERACION
-        //REQ.BODY
-        //REQ.PARAMS
-        //REQ.QUERY
+        
         console.log(req.query) //para ver todas las consultas que vienen en la peticion
         let consultasParaFiltrar = {} //se pasa adentro del metodo que busca
         let ordenamiento = {} //se pasa adentro del metodo que ordena
@@ -48,7 +46,7 @@ const controller = {
             paginacion.limit = req.query.limit
         }
         try {
-            let all = await Category.find(consultasParaFiltrar)
+            let all = await Category.find()
                         .sort(ordenamiento)
                         .skip( paginacion.page > 0 ? ( ( paginacion.page - 1 ) * paginacion.limit ) : 0 )
                         //skip es un método que corta los primeros datos (según el valor que le pase)
