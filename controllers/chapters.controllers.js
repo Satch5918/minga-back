@@ -12,6 +12,22 @@ const controller = {
         }
         catch(error){
             next(error)
+        }    
+    },
+    get_pages: async(req, res, next) => {
+        try{
+           const { comic_id,order } = req.params
+           const chapter = await Chapter.find({
+            comic_id: comic_id,
+            order: order
+           })
+           res.status(201).json({
+            success: true,
+            response: chapter
+           })
+        }
+        catch(error){
+            next(error)
         }
     }
 }
