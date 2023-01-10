@@ -10,7 +10,9 @@ const controller = {
             page: 1,
             limit: 10,
         };
-        
+        if (req.query.sort) {
+            ordenamiento = {title: req.query.sort};
+        }
         if (req.query.title) {
             consultasParaFiltrar.title = req.query.title.split(",");
             consultasParaFiltrar.title = {
@@ -30,7 +32,7 @@ const controller = {
         }
         try {
             let all = await Comic.find(consultasParaFiltrar)
-                
+                .sort(ordenamiento)
                 .skip(paginacion.page > 0 ? (paginacion.page - 1) * paginacion.limit: 0
                 )
                 .limit(paginacion.limit);
