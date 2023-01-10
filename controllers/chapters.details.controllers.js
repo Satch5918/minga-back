@@ -18,7 +18,7 @@ const controllerChDetails = {
             ordenamineto = {order : req.query.sort}
             }
         try{
-            const chapters = await Chapter.find(consultas)
+            const chapters = await Chapter.find(consultas, '-_id')
             .sort(ordenamineto)
             .skip(paginacion.page > 0 ? ((paginacion.page - 1) * paginacion.limit) : 0)
             .limit(paginacion.limit)
