@@ -8,9 +8,7 @@ import { get } from 'mongoose'
 let router = express.Router()
 
 router.post('/', validator(schema), orderExists, create)
-router.get('/:comic_id/:order',get_pages)
-
-/* router.get('/:comic_id/:order', get_pages) */ //params
-router.get('/', get_pages) //query
+router.get('/:_id', get_pages)  //params
+/* router.get('/', get_pages) */ //query
 
 export default router; 
