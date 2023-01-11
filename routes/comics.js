@@ -5,7 +5,7 @@ let router = express.Router();
 import validator from '../middlewares/validator.js'
 import schema from '../schemas/comic.schema.js'
 import tittleExist from '../middlewares/tittleExist.js'
-import controllerDetails from '../controllers/comics.details.controller.js';
+import controllerDetails from '../controllers/comics.all.controller.js';
 const {get_comic} = controllerDetails
 
 
