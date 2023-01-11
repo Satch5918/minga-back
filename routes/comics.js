@@ -16,6 +16,6 @@ import schema from '../schemas/comic.schema.js'
 import tittleExist from '../middlewares/tittleExist.js'
 
 router.post('/',validator(schema),tittleExist,create);
-router.get('/comics/profile/company', get_comics_from_cia)
+router.get('/profile/company', get_comics_from_cia)
 
 export default router;
