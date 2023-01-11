@@ -16,7 +16,7 @@ const controller = {
             next(error);
         }
     },
-    one: async(req, res, next) =>{
+    get_company: async(req, res, next) =>{
         try{
             let {id}= req.params //Capturo el id que viene por params del requerimiento
             let one = await Company.findOne({_id : id}) //Con ese id busco una empresa
@@ -36,7 +36,7 @@ const controller = {
             next(error)
         }
     },
-    read: async(req, res, next) => {
+    get_comics_from_cia: async(req, res, next) => {
         let query = {}
         let order = {}
         if(req.query.category){
