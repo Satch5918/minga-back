@@ -2,8 +2,8 @@ import { Chapter } from "../models/Chapter.js";
 
 const controllerChDetails = {
     get_comic_chapters:  async (req, res, next) => {
-        let consultas = {}
-        let ordenamineto = {}
+        let consultas = {comic_id: req.query.comic_id}
+        let ordenamineto = {order: "asc"}
         let paginacion ={
             page : 1,
             limit: 5
@@ -15,7 +15,7 @@ const controllerChDetails = {
             paginacion.limit = req.query.limit
         }
         if(req.query.sort){
-            ordenamineto = {order : req.query.sort}
+            ordenamineto = {order: req.query.sort}
             }
         try{
             const chapters = await Chapter.find(consultas, '-_id')
@@ -28,7 +28,7 @@ const controllerChDetails = {
             })
         }
         catch(error){
-            console.log(error)
+            next(error)
         }
         }
 }
