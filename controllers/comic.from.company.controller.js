@@ -9,7 +9,7 @@ const controllerCompany = {
             limit: 5,
             page: 1
         }
-        let all = await Comic.find(query,'title photo description category createdAt updatedAt -_id')
+        
         if(req.query.category){
             query = {
               ...query, 
@@ -37,9 +37,10 @@ const controllerCompany = {
         if(req.query.limit){
             pagination.limit = req.query.limit
         }
+    
         try{
             let all = await Comic
-            .find(query)
+            .find(query, 'title photo description category createdAt updatedAt -_id')
             .sort(order)
             .limit(pagination.limit)
             .skip(pagination.page > 0 ? ((pagination.page - 1) * pagination.limit) : 0)
