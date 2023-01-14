@@ -53,7 +53,7 @@ const controllerDetails = {
         consulta.order = req.query.order;
     }
     try {
-      const chapters = await Chapter.find(consulta, "-_id")
+      const chapters = await Chapter.find(consulta)
         .sort(ordenamiento)
         .skip(
           paginacion.pages > 0 ? (paginacion.pages - 1) * paginacion.limit : 0
