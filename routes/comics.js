@@ -14,7 +14,6 @@ const {get_comic} = controllerDetails
 import all from "../controllers/comicall.controller.js"
 
 const { read } = all
-let router = express.Router();
 
 router.get('/',read) // modificar nombre metodo 
 
