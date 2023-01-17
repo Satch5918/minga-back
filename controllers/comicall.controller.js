@@ -1,11 +1,12 @@
 import { Comic } from "../models/Comic.js";
 import defaultResponse from "../config/response.js";
+import { Category } from '../models/Category.js'
 
 const controller = {
     read: async (req, res, next) => {
         console.log(req.query);
         let consultasParaFiltrar = {};
-        let ordenamiento = {};
+        let ordenamiento = {title: 'asc'};
         let paginacion = {
             page: 1,
             limit: 10,
@@ -14,14 +15,14 @@ const controller = {
             ordenamiento = {title: req.query.sort};
         }
         if (req.query.title) {
-            consultasParaFiltrar.title = req.query.title.split(",");
+            
             consultasParaFiltrar.title = {
-                $regex: req.query.title,
+                "$regex": req.query.title,
                 $options: "i",
             };
         }
-        if (req.query.category_id) {
-            consultasParaFiltrar.category_id = req.query.category_id;
+        if (req.query.category) {
+            consultasParaFiltrar.category = req.query.category.split(",");
         }
         
         if (req.query.page) {
@@ -31,7 +32,7 @@ const controller = {
             paginacion.limit = req.query.limit;
         }
         try {
-            let all = await Comic.find(consultasParaFiltrar)
+            let all = await Comic.find(consultasParaFiltrar).populate('category')
                 .sort(ordenamiento)
                 .skip(paginacion.page > 0 ? (paginacion.page - 1) * paginacion.limit: 0
                 )
