@@ -2,11 +2,14 @@ import { Chapter } from "../models/Chapter.js";
 
 const controllerChDetails = {
     get_comic_chapters:  async (req, res, next) => {
-        let query = {comic_id: req.query.comic_id}
+        let query = {}
         let ordering = {order: "asc"}
         let pagination ={
             page : 1,
             limit: 5
+        }
+        if (req.query.comic_id) {
+            query.comic_id = req.query.comic_id
         }
         if(req.query.page){
             pagination.page = req.query.page
