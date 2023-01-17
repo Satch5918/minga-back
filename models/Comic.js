@@ -9,6 +9,7 @@ const schema = new mongoose.Schema(
         description: {type: String, required: true},
         category: {type: mongoose.Types.ObjectId, ref:'categories', required: true},
 
+
     },{
         timestamps: true
     }
