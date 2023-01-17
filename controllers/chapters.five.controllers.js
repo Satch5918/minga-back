@@ -3,10 +3,13 @@ import { Chapter } from "../models/Chapter.js";
 const controllerChDetails = {
     get_comic_chapters:  async (req, res, next) => {
         let consultas = {}
-        let ordenamineto = {}
+        let ordenamineto = {order: "asc"}
         let paginacion ={
             page : 1,
             limit: 5
+        }
+        if (req.query.comic_id) {
+            consultas.comic_id = req.query.comic_id
         }
         if(req.query.page){
             paginacion.page = req.query.page
