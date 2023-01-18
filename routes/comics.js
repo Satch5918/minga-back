@@ -4,6 +4,7 @@ import schema from '../schemas/comic.schema.js'
 import tittleExist from '../middlewares/tittleExist.js'
 import controllerDetails from '../controllers/comics.id.controller.js';
 import controllerCompany from '../controllers/comic.from.company.controller.js'
+import passport from "passport";
 
 const {get_comics_from_cia} = controllerCompany
 
@@ -18,12 +19,14 @@ const {get_comic} = controllerDetails
 
 
 import all from "../controllers/comicall.controller.js"
+import isAuthor from '../middlewares/isAuthor.js';
+import authorIsActive from '../middlewares/authorIsActive.js';
 
 const { read } = all
 
 
 router.get('/',read) // modificar nombre metodo 
-router.post('/',passport.authenticate('jwt',{session: false}),validator(schema),tittleExist,create);
+router.post('/',passport.authenticate('jwt',{session: false}), isAuthor, authorIsActive,validator(schema),tittleExist,create);
 router.get('/profile/company', get_comics_from_cia)
 router.get('/:id', get_comic)
 
