@@ -4,8 +4,8 @@ import  {Comment}  from '../models/Comment.js'
 const controller = {
   create: async(req,res, next)=> { 
       try {
-          const { chapter_id,user_id,text,commentable_id } = req.body
-          await Comment.create({ chapter_id,user_id,text,commentable_id })
+          const { chapter_id, text,commentable_id } = req.body
+          await Comment.create({ chapter_id, user_id: req.user.id ,text,commentable_id })
        
           res.status(201).json({
               success: true,
