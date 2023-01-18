@@ -12,8 +12,8 @@ import { get } from 'mongoose'
 let router = express.Router()
 const {create, get_pages} = controller
 
-router.post('/', validator(schema), orderExists, create)
-router.get('/order', details.get_comics_order )//params
+router.post('/', passport.authenticate('jwt',{session: false}), validator(schema), orderExists, create)
+router.get('/order',  details.get_comics_order )//params
 router.get('/pages/:_id', get_pages)
 router.get('/',details.get_comics_chapters)
 /* router.get('/', get_pages) */ //query

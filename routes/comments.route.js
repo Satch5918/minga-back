@@ -7,6 +7,6 @@ const { create } = controller
 
 
 /* GET users listing. */
-router.post('/',validator(schema),create)
+router.post('/',passport.authenticate('jwt',{session: false}),validator(schema),create)
 
 export default router;

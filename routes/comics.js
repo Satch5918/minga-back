@@ -23,7 +23,7 @@ const { read } = all
 
 
 router.get('/',read) // modificar nombre metodo 
-router.post('/',validator(schema),tittleExist,create);
+router.post('/',passport.authenticate('jwt',{session: false}),validator(schema),tittleExist,create);
 router.get('/profile/company', get_comics_from_cia)
 router.get('/:id', get_comic)
 
