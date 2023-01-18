@@ -2,11 +2,12 @@ import { Category } from '../models/Category.js'
 import { User } from '../models/User.js'
 import defaultResponse from '../config/response.js'
 
+
 const controller = {
     
     create: async(req,res,next)=> { 
         try { 
-            await Category.create(req.body)
+                    await Category.create(req.body)
             req.body.success = true
             req.body.sc = 201
             req.body.data = 'created'
@@ -17,6 +18,7 @@ const controller = {
     },
     
     read: async(req,res,next)=> {
+
         //REQ ES UN OBJETO CON TOOOOOOODOS LOS REQUERIMIENTOS PARA PODER REALIZAR LA OPERACION
         //REQ.BODY
         //REQ.PARAMS
@@ -36,22 +38,23 @@ const controller = {
        
         try {
             let all = await Category.find(consultasParaFiltrar)
-                        .sort({name: "asc"})
-                        
+                        .sort({name: "asc"}
+
             if (all) {
                 req.body.success = true
-                req.body.sc = 200
+                req.body.sc =200
                 req.body.data = all
-                return defaultResponse(req,res)
+                return defaultResponse (req, res)
             } else {
                 req.body.success = false
-                req.body.sc = 404
-                req.body.data = 'not found'
+                req.body.sc = 400
+                req.body.data = 'not found' 
                 return defaultResponse(req,res)
-            }    
-        } catch(error) {
+            }
+        } catch (error) {
             next(error)
         }
+        
     }
 
 }

@@ -26,4 +26,4 @@ app.use('/api', indexRouter) //nuevo middleware en ruta
 app.use(notFoundHandler)<
 app.use(errorHandler)
 
-export default app;
+export default app; // /api/comic/

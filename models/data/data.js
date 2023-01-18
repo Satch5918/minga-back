@@ -25,7 +25,7 @@ newCategories(categories)
 
 let newComic = async(comic,author,company) => {
     let category = await Category.findOne({ name: comic.category_name })
-    comic.category_id = category._id
+    comic.category = category._id
     comic.author_id = author._id
     if (company) {
         comic.company_id = company._id
