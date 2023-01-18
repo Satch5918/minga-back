@@ -6,14 +6,17 @@ import orderExists from '../middlewares/orderExist.js'
 import controllerChDetails from '../controllers/chapters.five.controllers.js'
 const {get_comic_chapters} = controllerChDetails
 
+import passport from "passport";
 import details from '../controllers/chapter.details.controller.js'
 import { get } from 'mongoose'
+import authorIsActive from '../middlewares/authorIsActive.js'
+import isAuthor from '../middlewares/isAuthor.js'
 
 let router = express.Router()
 const {create, get_pages} = controller
 
-router.post('/', validator(schema), orderExists, create)
-router.get('/order', details.get_comics_order )//params
+router.post('/', passport.authenticate('jwt',{session: false}), isAuthor, authorIsActive, validator(schema), orderExists, create)
+router.get('/order',  details.get_comics_order )//params
 router.get('/pages/:_id', get_pages)
 router.get('/',details.get_comics_chapters)
 /* router.get('/', get_pages) */ //query
