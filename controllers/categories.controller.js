@@ -38,7 +38,7 @@ const controller = {
        
         try {
             let all = await Category.find(consultasParaFiltrar)
-                        .sort({name: "asc"}
+                        .sort({name: "asc"})
 
             if (all) {
                 req.body.success = true
