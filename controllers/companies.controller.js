@@ -5,8 +5,8 @@ const controller = {
     create: async(req, res, next)=> {
         try{
             let active = true
-            const { name,logo,website,description,user_id } = req.body
-            await Company.create({ name,logo,website,description,user_id, active})
+            const { name,logo,website,description } = req.body
+            await Company.create({ name,logo,website,description, user_id: req.user.id, active})
             res.status(201).json({
                 succes: true, 
                 response: "done",
