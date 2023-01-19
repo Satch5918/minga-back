@@ -19,7 +19,7 @@ const controllerDetails = {
         } 
         try {
             console.log(consulta);
-          const chapters = await Chapter.find(consulta, "-_id")
+          const chapters = await Chapter.find(consulta)
             .sort(ordenamiento)
             console.log(chapters);
           res.status(201).json({

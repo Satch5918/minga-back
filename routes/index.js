@@ -15,14 +15,12 @@ router.get('/', function(req, res, next) {
 })
 
 router.use('/auth',users)
+router.use('/companies', companies)
 router.use('/comments',comments)
 router.use('/authors',author)
 router.use('/chapters', chapters)
 router.use('/comics', comics)
 router.use('/companies', companies)
 router.use('/categories', categories)
-
-router.use('/auth',users)
-
 
 export default router;
