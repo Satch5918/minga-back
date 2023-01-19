@@ -1,5 +1,4 @@
 import express from 'express';
-
 import chapters from './chapters.route.js'
 import comics from './comics.js'
 import users from './users.route.js'

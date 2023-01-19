@@ -1,3 +1,5 @@
+// middleware para checkear si usuario esta activo.
+
 import { Author } from '../models/Author.js' 
 import defaultResponse from '../config/response.js' 
 
