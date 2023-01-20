@@ -7,6 +7,7 @@ const schema = Joi.object({
    country:Joi.string().min(1).max(20).required(),
    date: Joi.date(),
    photo:Joi.string().uri().required(),
+   active: Joi.boolean().required()
 })
 
 export default schema
