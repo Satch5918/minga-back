@@ -21,7 +21,8 @@ passport.use(
                         is_admin: user.is_admin,
                         is_author: user.is_author,
                         is_company: user.is_company,
-                        id: user.user_id
+                        id: user.id,
+                        is_authorOfComment: user.is_authorOfComment
                     }
                     return done(null, user)
                 } else {
