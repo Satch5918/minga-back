@@ -21,6 +21,7 @@
     "joi": "^17.7.0",
     "joi-oid": "^1.1.2",
     "jsonwebtoken": "^9.0.0",
+    "jwt-decode": "^3.1.2",
     "mongoose": "^6.8.2",
     "morgan": "~1.9.1",
     "passport": "^0.6.0",
