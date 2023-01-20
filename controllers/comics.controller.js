@@ -13,6 +13,24 @@ const controller = {
       next(error);
     }
   },
+  read: async (req,res) => {
+    try{
+        let comics = Comic.findById()
+        if (comics){
+            res.status(200).json({
+            success:true,
+            response: comics
+            })
+        }else {
+            res.status(404).json({
+                success: false,
+                response: 'not found'
+            })
+        }
+    }catch(error){
+        console.log(error)
+    }
+  },
   //en el req el usuario me tiene que enviar el Id de ese comic que quiere actualizar
   update: async (req, res) => {
     try {
@@ -24,7 +42,8 @@ const controller = {
       );
       res.status(200).json({
         success: true,
-        response: "deleted",
+        response: "update",
+        update_comic: comic
       });
     } catch (error) {
       console.log(error);
@@ -33,13 +52,20 @@ const controller = {
   destroy: async (req, res) => {
     try {
       const { id } = req.params;
-      await Comic.findByIdAndDelete(id);
-      res.status(200).json({});
+      await Comic.findByIdAndDelete(
+        { _id: id }
+    );
+      res.status(200).json({
+        success: true,
+        response: "deleted",
+      });
     } catch (error) {
       console.log(error);
     }
   },
 };
+
+
 
 export default controller;
 /* 
