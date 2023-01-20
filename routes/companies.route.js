@@ -13,5 +13,5 @@ let router = express.Router()
 router.post('/',passport.authenticate('jwt',{session: false}), mustSignIn,validator(schema), create)
 router.get('/:id', get_company)// el nombre del params tiene que ser el mismo en ruta y en controlador 
 router.put('/:me',passport.authenticate('jwt',{session: false}), validator(schema), update)
-
+// ruta provicional
 export default router
