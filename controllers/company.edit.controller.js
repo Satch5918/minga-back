@@ -4,11 +4,9 @@ import jwtDecode from 'jwt-decode'
 const companyEditController = {
     update: async (req,res,next) => {
         const companyInfo = req.body
-        const token = req.headers.authorization.split(' ')[1]
-        let decodedToken = jwtDecode(token).id
-        console.log(decodedToken)
+        console.log(req.user.id)
         try{
-            let result = await Company.findOneAndUpdate({user_id: decodedToken}, {$set: companyInfo}, {new: true});
+            let result = await Company.findOneAndUpdate({user_id: req.user.id}, {$set: companyInfo}, {new: true});
         return res.status(200).json({
             success: true,
             message: result
