@@ -17,7 +17,7 @@ passport.use(
                     user = { //este es el objeto user que se "inyecta" al req
                         //aqui es donde protejo los datos del usuario.
 
-                        id: user._id,
+                        
                         // esta propiedad id se la agregamos para que en la estrategia de passport se le enchufe al usuario su id.
                         mail: user.mail,
                         photo: user.photo,
