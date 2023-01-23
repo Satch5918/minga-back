@@ -10,7 +10,6 @@ const schema = new mongoose.Schema(
         is_author: {type: Boolean, require: true},
         is_company: {type: Boolean, require: true},
         is_verified: {type: Boolean, require: true},
-        is_authorOfCommic: {type:Boolean, require:true},
         verify_code: {type: String, require: true},
     },{
         timestamps: true

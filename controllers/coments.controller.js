@@ -56,7 +56,7 @@ const controller = {
   update_comment : async(req, res, next) =>{
     try{
       const {text,commentable_id, chapter_id} = req.body
-        await Comment.findOneAndUpdate({text});
+        await Comment.findOneAndDelete({text});
        res.status(200).json({
         success: true,
         response: 'done',
