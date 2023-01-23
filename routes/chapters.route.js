@@ -9,6 +9,7 @@ import details from '../controllers/chapter.details.controller.js'
 import { get } from 'mongoose'
 import authorIsActive from '../middlewares/authorIsActive.js'
 import isAuthor from '../middlewares/isAuthor.js'
+// comentario para que me deje pushear
 import {verifyAuthor} from "../middlewares/verifyAuthor.js"
 
 
