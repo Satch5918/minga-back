@@ -1,19 +1,19 @@
 import Joi from 'joi-oid'
 
-const schemaPost = Joi.object({
-   name:Joi.string().min(1).max(20).required().messages({
+ export const schemaPost = Joi.object({
+   name:Joi.string().min(3).max(20).required().messages({
       "any.required":"Please enter your name",
       "string.empty":"Please enter your name"
    }),
-   last_name:Joi.string().min(1).max(20).messages({
+   last_name:Joi.string().min(3).max(20).messages({
       "any.required":"Please enter your last name",
       "string.empty":"Please enter your last name"
    }),
-   city:Joi.string().min(1).max(20).required().messages({
+   city:Joi.string().min(3).max(20).required().messages({
       "any.required":"Please enter your city",
       "string.required":"Please enter your city"
    }),
-   country:Joi.string().min(1).max(20).required().messages({
+   country:Joi.string().min(3).max(20).required().messages({
       "any.required":"Please enter your country",
       "string.empty":"Please enter your country"
    }),
@@ -28,20 +28,20 @@ const schemaPost = Joi.object({
    }),
    active: Joi.boolean().required()
 })
-const schemaPut = Joi.object({
-   name: Joi.string().min(1).max(20).messages({
+export const schemaPut = Joi.object({
+   name: Joi.string().min(3).max(20).messages({
       "any.required":"Please enter your name",
       "string.empty":"Please enter your name"
    }),
-   last_name: Joi.string().min(1).max(20).messages({
+   last_name: Joi.string().min(3).max(20).messages({
       "any.required":"Please enter your last name",
       "string.empty":"Please enter your last name"
    }),
-   city:Joi.string().min(1).max(20).messages({
+   city:Joi.string().min(3).max(20).messages({
       "any.required":"Please enter your city",
       "string.required":"Please enter your city"
    }),
-   country:Joi.string().min(1).max(20).messages({
+   country:Joi.string().min(3).max(20).messages({
       "any.required":"Please enter your country",
       "string.empty":"Please enter your country"
    }),
@@ -57,6 +57,3 @@ const schemaPut = Joi.object({
    active: Joi.boolean()
 })
 
-const schemas = {schemaPost, schemaPut}
-
-export default schemas
