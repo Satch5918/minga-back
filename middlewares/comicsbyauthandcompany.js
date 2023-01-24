@@ -1,12 +1,18 @@
-import { Comic } from "../models/Comic.js";
-import defaultResponse from "../config/response.js";
-import { Author } from "../models/Author.js";
-import { Company } from "../models/Company.js";
-import {User} from '../models/User.js'
+import { Comic } from "../models/Comic.js"
+import { User } from "../models/User.js"
+import { Author } from "../models/Author.js"
+import { Company } from "../models/Company.js"
 
 const controller2 ={
-myComics: async(req,res, next) => { 
-        console.log(req.user);
+read: async(req,res, next) => { 
+/*         if(req.user.is_author){
+            let author = await Author.findOne({user_id: req.user.id})
+            query.author_id = author._id
+        }
+        if(req.user.is_author){
+            let company = await Company.findOne({user_id: req.user.id})
+            query.company_id = company._id
+        } */console.log(req.user);
             try{
                 let filter = {}
                 let comics;
@@ -39,7 +45,7 @@ myComics: async(req,res, next) => {
     }catch(error){
         next(error);
         
-    }},
+    }
     update: async(req,res,next)=>{
         try{
         const { id }= req.params;
@@ -53,7 +59,7 @@ myComics: async(req,res, next) => {
         }catch(error){
             console.log(error);
         }
-    },
+    }
     destroy: async(req, res) =>{
 
         try{
@@ -72,6 +78,7 @@ myComics: async(req,res, next) => {
             console.log(error);
         }
     }
+}
 }
 
 export default controller2;
