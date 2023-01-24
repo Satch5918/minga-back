@@ -5,7 +5,7 @@ import  {Comment}  from '../models/Comment.js'
 const controller = {
   create: async(req,res, next)=> { 
       try {
-          const { chapter_id, text,commentable_id} = req.body
+          const { chapter_id, text, user_id} = req.body
           console.log(req.user.id)
           let comment = await Comment.create({ chapter_id, user_id: req.user.id ,text,commentable_id })
        
@@ -57,8 +57,12 @@ const controller = {
   },
   update_comment : async(req, res, next) =>{
     try{
-      const {text,commentable_id, chapter_id} = req.body
-        await Comment.findOneAndDelete({text});
+      
+        await Comment.findOneAndDelete(
+          {_id: req.params.id, text},
+          req.body= {text},
+          {new: true},
+          );
        res.status(200).json({
         success: true,
         response: 'done',
