@@ -1,6 +1,6 @@
 import Joi from 'joi-oid'
 
-const schema = Joi.object({
+export const schema = Joi.object({
     author_id: Joi.objectId().required().messages({
         'any.required': 'please put author id',
         'string.empty': 'please put author id'
@@ -25,4 +25,9 @@ const schema = Joi.object({
     }) 
 })
 
-export default schema
+export const comicSchema = Joi.object({
+    title: Joi.string().min(1).required().messages({
+        'any.required': 'please put title of manga or comic',
+        'string.empty': 'please put title of manga or comic'
+})
+})
