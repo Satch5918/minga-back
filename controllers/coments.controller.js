@@ -19,8 +19,9 @@ const controller = {
       }
   }, 
   read: async (req,res, next) => {
-     console.log(req.query)
-     let query = {}
+    const {id} = req.params 
+    console.log(req.query)
+     let query = {chapter_id: id}
      let order = {createdAt: "desc"}
      let pagination = {
        limit: 5,
@@ -40,7 +41,8 @@ const controller = {
      }
 
     try{
-      let comment = await Comment.find(query)
+      let comment = await Comment.find(query).sort(order).limit(pagination.limit).skip(pagination.page > 0 ? (pagination.page - 1) * pagination.limit: 0
+      )
       if(comment){
         res.status(200).json({
           succes: true,
