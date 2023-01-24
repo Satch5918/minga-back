@@ -22,7 +22,7 @@ router.get('/pages/:_id', get_pages)
 router.get('/',details.get_comics_chapters)
 
 router.put("/:id",passport.authenticate("jwt", { session: false}),validator(updateChapter),isAuthor, update)
-router.delete("/:id", passport.authenticate("jwt", { session: false }),validator(deleteChapter), isAuthor,verifyAuthor, destroy)
-/* router.get('/', get_pages) */ //query
+router.delete("/:id", passport.authenticate("jwt", { session: false }), isAuthor,verifyAuthor, destroy)
+/* router.get('/', get_pages) */ //querys
 
 export default router; 
