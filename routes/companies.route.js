@@ -1,15 +1,19 @@
 import express  from "express";
 import controller from "../controllers/companies.controller.js";
-import schema from '../schemas/companies.schema.js'
+import schemas from '../schemas/companies.schema.js'
 import validator from "../middlewares/validator.js";
 import passport from "passport";
 import mustSignIn from "../middlewares/mustSignIn.js";
+import companyEditController from "../controllers/company.edit.controller.js";
+import isCompany from "../middlewares/isCompany.js";
 
+const {schemaPost, schemaPut} = schemas
+const {update} = companyEditController
 const { create, get_company } = controller
 let router = express.Router()
 
-router.post('/',passport.authenticate('jwt',{session: false}), mustSignIn,validator(schema), create)
+router.post('/',passport.authenticate('jwt',{session: false}), mustSignIn ,validator(schemaPost), create)
 router.get('/:id', get_company)// el nombre del params tiene que ser el mismo en ruta y en controlador 
-
-
+router.put('/:me',passport.authenticate('jwt',{session: false}), validator(schemaPut), isCompany,update)
+// ruta provicional
 export default router
