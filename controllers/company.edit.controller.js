@@ -1,4 +1,5 @@
 import {Company} from '../models/Company.js'
+import jwtDecode from 'jwt-decode'
 
 const companyEditController = {
     update: async (req,res,next) => {

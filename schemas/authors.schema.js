@@ -52,6 +52,7 @@ export const schemaPut = Joi.object({
       "string.empty":"Please enter your country",
       "string.min":"Your country must have at least 3 letters",
       "string.max":"Your country must have a maximun 20 letters"
+
    }),
    date: Joi.date().messages({
       "any.required":"Your date is empty, please enter your date",
