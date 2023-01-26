@@ -44,7 +44,6 @@ const controller = {
           next(error)
         }
     },
-   
   destroy: async (req, res, next) => {
     try {
         const { id } = req.params
