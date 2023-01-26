@@ -27,8 +27,8 @@ router.get('/me', passport.authenticate('jwt',{session: false}), myComics)
 router.get('/profile/company', get_comics_from_cia)
 router.get('/:id', get_comic)
 router.post('/',passport.authenticate('jwt',{session: false}), isAuthor, authorIsActive,validator(schema),tittleExist,create);
-router.put('/:id',passport.authenticate('jwt',{session: false}),validator(comicSchema),authorOrCompany,update)
-router.delete('/:id',passport.authenticate('jwt',{session: false}),validator(comicSchema),authorOrCompany,verifyAoC,destroy)
+router.put('/:id',passport.authenticate('jwt',{session: false}),validator(comicSchema),authorOrCompany,verifyAoC,update)
+router.delete('/:id',passport.authenticate('jwt',{session: false}),authorOrCompany,verifyAoC,destroy)
 
 
 export default router;
