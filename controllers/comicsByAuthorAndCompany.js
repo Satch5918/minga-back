@@ -16,7 +16,7 @@ const controller2 = {
         if (req.query.category_id) {
           filter.category_id = req.query.category_id;
         }
-        comics = await Comic.find(filter);
+        comics = await Comic.find(filter).populate({path: 'category', select: 'name'});
       }
       if (req.user.is_company) {
         let company = await Company.findOne({ user_id: req.user.id });
@@ -24,7 +24,7 @@ const controller2 = {
         if (req.query.category_id) {
           filter.category_id = req.query.category_id;
         }
-        comics = await Comic.find(filter);
+        comics = await Comic.find(filter).populate({path: 'category', select: 'name'});
       }
       if (comics) {
         res.status(200).json({
