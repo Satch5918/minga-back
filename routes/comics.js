@@ -31,4 +31,5 @@ router.put('/:id',passport.authenticate('jwt',{session: false}),validator(comicS
 router.delete('/:id',passport.authenticate('jwt',{session: false}),authorOrCompany,verifyAoC,destroy)
 
 
+
 export default router;
