@@ -12,9 +12,10 @@ const controller = {
                 response:'done',
             })
         }catch(error){
-           next(error);
+            next(error);
             }
-        }
+        },
+    
     }
         export default controller
     

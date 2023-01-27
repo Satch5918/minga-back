@@ -17,7 +17,7 @@ let newComic = async(name_category,comic) => {
     comic.author_id = author._id
     let category = await Category.findOne({ name: name_category })
     console.log(category._id)    
-    comic.category_id = category._id
+    comic.category = category._id
     let newComic = await Comic.create(comic)
     return newComic._id
 }
