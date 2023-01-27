@@ -1,62 +1,54 @@
-import mercadopago from "mercadopago";
 import axios from "axios";
+import mercadopago from "mercadopago";
 
-const preference = {
-    items: [
-        {
-            title: "Donation 1.000",
-            quantity: 1,
-            currency_id: "ARS",
-            unit_price: 1000,
-        },
-        {
-            title: "Donation 5.000",
-            quantity: 1,
-            currency_id: "ARS",
-            unit_price: 5000,
-        },
-        {
-            title: "Donation 10.000",
-            quantity: 1,
-            currency_id: "ARS",
-            unit_price: 10000,
-        },
-    ],
-} 
+const crearOrden = async (req, res) => {
 
-const paymentController = {
-    create: async(req,res) => {
-        try{
-            console.log(req.query)
-/*             console.log(req.body) */
-            mercadopago.preferences
-            const response = axios.get('https://api.mercadopago.com/checkout/preferences', req.body, {
-                headers: {
-                    "Content-Type": "application/json",
-                    Authorization: `Bearer ${process.env.ACCESS_TOKEN}`}
-            })
-            console.log(response)
-            res.status(201).json({
-                success: true,
-                response: "payment successfully"
-            })
+    const response = axios.get('https://api.mercadopago.com/checkout/preferences', req.body, {
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${process.env.ACCESS_TOKEN}`
         }
-        catch(error){
+    })
+
+
+
+    const produ = req.body
+    console.log(produ)
+
+    const preference = {
+        items: [
+            {
+                title: "Donacion",
+                quantity: 1,
+                currency_id: "ARS",
+                unit_price: produ.unit_price
+            }, 
+        ],
+        back_urls: {
+            success: "http://localhost:3000/succes-payment",
+            pending: "http://localhost:3000",
+            failure: "http://localhost:3000",
+          },
+          auto_return: "approved",
+    }; 
+
+    mercadopago.preferences.create(preference)
+        .then(function (response) {
+
+            if (req.body.unit_price) {
+                return res.status(response.status).json({
+                    response
+                })
+            } else {
+                console.log("esto seria los otros items")
+            } 
+        })
+        .catch(function (error) {
             console.log(error)
-        }
-    },
-    async create(req, res){
-        try{
-            preference.items.map(item => {
-                if (item.unit_price === req.body.unit_price) {
-                    console.log(item)
-                }
+            return res.status(500).json({
+                message: "Failed to creat payment"
             })
-            
-        }catch(error){
-            console.log(error)
-        }
-    }
-} 
+        })
+}
 
-export default paymentController
+export default crearOrden

@@ -2,11 +2,9 @@ import express  from "express";
 const router = express.Router()
 import passport from "passport";
 import validator from '../middlewares/validator.js'
-import paymentController from "../controllers/mercadopago.controller.js";
+import crearOrden from "../controllers/mercadopago.controller.js";
 
 
-const {create} = paymentController
-
-router.post('/', create)
+router.post('/', crearOrden)
 
 export default router
