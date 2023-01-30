@@ -15,41 +15,38 @@ import { Company } from "../models/Company.js";
 const adminController = {
   updateRoleCompany: async (req, res) => {
     try {
-      
-      const user = await User.findOneAndUpdate(
-        { _id: req.params.id },
-        { $set: { is_company: true } }
+      const { id } = req.params;
+      const updatedUser = await User.findByIdAndUpdate(
+        id,
+        { is_company: true },
+        { new: true }
       );
-      const company = await Company.findOneAndUpdate(
-        { user: req.params.id },
-        { $set: { active: true } }
+      const updatedCompany = await Company.findOneAndUpdate(
+        { user_id: id },
+        { new: true }
       );
-      res
-        .status(200)
-        .json({ message: "User role successfully updated to company" });
-    } catch (err) {
-      res.status(404).json({ error: err.message });
-      next(err);
+      res.status(200).json({ user: updatedUser, company: updatedCompany });
+    } catch (error) {
+      res.status(500).json({ error: error.message });
     }
   },
 
   updateRoleAuthor: async (req, res) => {
     try {
-      const user = await User.findOneAndUpdate(
-        { _id: req.params.id },
-        { $set: { is_author: true } }
+      const { id } = req.params;
+      const updatedUser = await User.findByIdAndUpdate(
+        id,
+        { is_author: true },
+        { new: true }
       );
-      const author = await Author.findOneAndUpdate(
-        { user: req.params.id },
-        { $set: { active: true } }
+      const updatedAuthor = await Author.findOneAndUpdate(
+        { user_id: id },
+        { active: true },
+        { new: true }
       );
-      res
-        .status(200).json({ 
-            succes: true,
-            message: "User role successfully updated to author" });
-    } catch (err) {
-      res.status(404).json({ error: err.message });
-        next(err);
+      res.status(200).json({ user: updatedUser, author: updatedAuthor });
+    } catch (error) {
+      res.status(500).json({ error: error.message });
     }
   },
 };
