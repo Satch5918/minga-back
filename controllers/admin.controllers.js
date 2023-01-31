@@ -48,6 +48,35 @@ const adminController = {
       next(error)
     }
   },
+    getCompanies: async(req, res, next) => {
+      try{
+        const active = req.query.active === 'true';
+        const companies = await Company.find({ active });
+        return (
+            res.status(200).json({
+            succes: true,
+            response: companies
+          })
+        );
+      }catch(error){
+      console.log(error)
+      next(error)
+    }},
+    getAuthor: async(req, res, next) => {
+      try{
+        const active = req.query.active === 'true';
+        const authors = await Author.find({ active });
+        return (
+            res.status(200).json({
+            succes: true,
+            response: authors
+          })
+        );
+      }catch(error){
+      console.log(error)
+      next(error)
+    }},
+
 };
 
 export default adminController;
