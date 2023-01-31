@@ -10,8 +10,8 @@ const {updateRoleCompany, updateRoleAuthor } = adminController
 
 let router = express.Router()
 
-router.put('/company',passport.authenticate('jwt',{session: false}), updateRoleCompany)
-router.put('/auth/role/author', updateRoleAuthor)
+router.put('/company/:id',passport.authenticate('jwt',{session: false}), updateRoleCompany)
+router.put('/author/:id',passport.authenticate('jwt',{session: false}), updateRoleAuthor)
 
 
 

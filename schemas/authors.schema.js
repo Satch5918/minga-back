@@ -26,7 +26,6 @@ import Joi from 'joi-oid'
       "string.required":"Please enter your photo",
       "string.uri":"This field required an url, please enter an url with your photo"
    }),
-   active: Joi.boolean().required()
 })
 export const schemaPut = Joi.object({
    name: Joi.string().min(3).max(20).required().messages({

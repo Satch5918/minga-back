@@ -7,7 +7,7 @@ import comments from './comments.route.js'
 import author from './author.route.js'
 import companies from './companies.route.js'
 import categories from './categories.route.js'
-import admin from './author.route.js'
+import admin from './admin.router.js'
 
 let router = express.Router();
 
