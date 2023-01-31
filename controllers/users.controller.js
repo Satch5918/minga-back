@@ -26,6 +26,7 @@ const controller = {
         }
     },
 
+
     signin: async (req, res, next) => {
         let { password } = req.body
         let { user } = req
@@ -37,19 +38,17 @@ const controller = {
                     { is_online: true }, //parametro a modificar
                     { new: true } //especificacion que reemplace el documento de origen
                 )
-                let token = jwt.sign( //creo la firma de jwt
-                    { id: user.id }, //parametro a convertir en token
-                    process.env.KEY_JWT, //parámetro secreto, necesario para la conversion
-                    { expiresIn: 60*60*24 } //tiempo de expiracion en segundos
+                // parte de procesamiento de token
+                let token = jwt.sign( //creo la firma de jwt, a traves de un metodo sign, de la libreria json web token, genero un token unicamente con el id, en este objeto podria poner otros datos por ejemplo la foto, en la linea de abajo ejem { id: user.id, pohoto: user.photo } entonces genera un token con esta info encriptada, al des encriptarla me trae estos datos.
+                // este metodo sign requiere 3 parametros
+                    { id: user.id }, //parametro a convertir en token. 1.objeto que quiero encriptar.
+                    process.env.KEY_JWT, //parámetro secreto, necesario para la conversion 2.la llave que hace el proceso de encriptado y des encriptado esta en el env, no se recomienda cambiar esta llave ni aca ni en el env.
+                    { expiresIn: 60*60*24 } //tiempo de expiracion en segundos 3. es el tiempo de expiracion.
                 )
                 //console.log(token)
                 user = { //protejo mas datos sensibles
                     mail: user.mail,
-                    photo: user.photo,
-                    is_admin: user.is_admin,
-                    is_author: user.is_author,
-                    is_company: user.is_company,
-                    is_verified: user.is_verified
+                    photo: user.photo
                 }
                 req.body.success = true
                 req.body.sc = 200

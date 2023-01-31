@@ -9,7 +9,7 @@ const controller = {
         let ordenamiento = {title: 'asc'};
         let paginacion = {
             page: 1,
-            limit: 10,
+            limit: 33,
         };
         if (req.query.sort) {
             ordenamiento = {title: req.query.sort};
