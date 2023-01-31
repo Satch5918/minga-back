@@ -2,7 +2,6 @@
 import { schema, deleteChapter,updateChapter } from "../schemas/chapters.schema.js"
 import express from 'express'
 import controller from '../controllers/chapters.controllers.js'
-import schema from '../schemas/chapters.schema.js'
 import validator from '../middlewares/validator.js'
 import orderExists from '../middlewares/orderExist.js'
 import controllerChDetails from '../controllers/chapters.five.controllers.js'
