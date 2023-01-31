@@ -1,5 +1,6 @@
 import Joi from 'joi-oid'
 
+<<<<<<< HEAD
 const schemaPost = Joi.object({
     name: Joi.string().required().min(3).max(20).messages({
         "any.required":"Please enter the company name",
@@ -16,6 +17,13 @@ const schemaPost = Joi.object({
     }),
     description: Joi.string().required().min(8).max(200),
     active: Joi.boolean().required()
+=======
+const schema = joi.object({
+    name: joi.string().required().min(3).max(20),
+    logo: joi.string().uri().required().min(8),
+    website: joi.string().required().min(4),
+    description: joi.string().required().min(8).max(100)
+>>>>>>> 7f32f16b3225ab680fc2ac11cc7cff86c8fbe6e1
 })
 
 const schemaPut = Joi.object({
