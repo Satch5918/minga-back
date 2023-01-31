@@ -6,7 +6,6 @@ import isAuthor from '../middlewares/isAuthor.js'
 import passport from "passport";
 import authorEditController from "../controllers/author.edit.controller.js";
 import authorIsActive from "../middlewares/authorIsActive.js";
-import passport from "passport";
 let router = express.Router();
 
 const {update} = authorEditController
