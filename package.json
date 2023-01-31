@@ -7,7 +7,13 @@
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
     "data": "node ./models/data/data.js",
+<<<<<<< HEAD
+    "pkm": "node ./models/oneComic.js",
+    "chap": "node ./models/data/chapters.js",
+    "comic": "node ./models/oneComic.js"
+=======
     "pkm": "node ./models/oneComic.js"
+>>>>>>> 7f32f16b3225ab680fc2ac11cc7cff86c8fbe6e1
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",

@@ -1,6 +1,23 @@
 import {Chapter}  from '../models/Chapter.js'
 
 const controller = {
+    update: async (req, res, next) => {
+        try {
+            const { id } = req.params
+            let chapter = await Chapter.findOneAndUpdate(
+                { _id: id },
+                req.body,
+                { new: true }
+            )
+            res.status(200).json({
+                success: true,
+                response: chapter
+            })
+        }
+        catch (err) {
+            next(err)
+        }
+    },
     create: async(req, res, next) => {
         try{
             const { comic_id, title, pages, order } = req.body
@@ -27,6 +44,22 @@ const controller = {
           next(error)
         }
     },
+   
+  destroy: async (req, res, next) => {
+    try {
+        const { id } = req.params
+        await Chapter.findOneAndDelete(
+            { _id : id} 
+            )
+        res.status(200).json({
+            success: true,
+            response: "deleted"
+        })
+    }
+    catch (err) {
+        next(err)
+    }
+},
 }
 
 export default controller;

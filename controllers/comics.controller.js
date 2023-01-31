@@ -13,6 +13,8 @@ const controller = {
             next(error)
         }
     }
-}
+  }
 
-export default controller
+
+
+export default controller;
