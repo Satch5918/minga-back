@@ -52,6 +52,7 @@ const adminController = {
       try{
         const active = req.query.active === 'true';
         const companies = await Company.find({ active });
+        //define una var "active" y asigna el resultado de la comparación entre req.query.active y la cadena 'true'. req.query es un objeto que contiene los parámetros de consulta en la URL y verifica si req.query.active es igual a 'true'
         return (
             res.status(200).json({
             succes: true,
