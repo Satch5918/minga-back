@@ -8,6 +8,8 @@ import author from './author.route.js'
 import companies from './companies.route.js'
 import categories from './categories.route.js'
 import admin from './admin.router.js'
+import mercadopago from './mercadopago.route.js'
+
 
 let router = express.Router();
 
@@ -25,5 +27,7 @@ router.use('/comics', comics)
 router.use('/companies', companies)
 router.use('/categories', categories)
 router.use('/auth/role',admin)
+router.use('/donation', mercadopago)
+
 
 export default router;
