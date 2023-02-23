@@ -54,6 +54,7 @@ const controller = {
           },
       
 
+
     signin: async (req, res, next) => {
         let { password } = req.body
         let { user } = req
@@ -75,11 +76,7 @@ const controller = {
                 //console.log(token)
                 user = { //protejo mas datos sensibles
                     mail: user.mail,
-                    photo: user.photo,
-                    is_admin: user.is_admin,
-                    is_author: user.is_author,
-                    is_company: user.is_company,
-                    is_verified: user.is_verified
+                    photo: user.photo
                 }
                 req.body.success = true
                 req.body.sc = 200
