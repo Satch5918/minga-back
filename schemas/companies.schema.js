@@ -15,7 +15,6 @@ const schemaPost = Joi.object({
         "string.required":"Please enter your website"
     }),
     description: Joi.string().required().min(8).max(200),
-    active: Joi.boolean().required()
 })
 
 const schemaPut = Joi.object({
