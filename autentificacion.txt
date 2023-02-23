@@ -1,0 +1,20 @@
+Autentificamos a traves de middleworks, para no llenar el controlador de funcionalidades.
+
+Jwt: JSON web token: cadena alfa numerica con caracteres aparentemente aleatorios, los json web token pueden ser desencriptados por el servidor y de esta forma, autenticarse como usuario en la aplicacion. verificamos la identidad.
+
+JWT : tiene 3 partes separadas por puntos, son 3 codigos alfanumericos separados por puntos : 
+            1. header, almacena que tipo de token es y como se encripta y se desencripta, y guarda info de que tipo de token tenemos.
+            2. payload, contiene los datos codificados.
+            3. es la firma, quien y como se ha hecho.
+
+JWT: como funciona: el usuario se conecta a travez de un controlador sigin, el servidor verifica esos datos y me devuelve el token. dentro del token esta su id encriptado.
+
+para implementar necesitamos instalar librerias : 
+
+metodos para generar el token
+npm install jsonwebtoken
+
+metodos para realizar validaciones jwt de nuestrso usuarios y permitirles acceso a los servicios definidos segun su rol.
+npm install passport
+npm install passport-jwt
+
