@@ -5,7 +5,7 @@ const controller = {
     create:async(req, res, next)=>{
         try{
             const {name,last_name,city,country,date,photo}= req.body
-            let active= true;
+            let active= false;
             await Author.create({name,last_name,city,country,date,photo,user_id: req.user.id,active})
             res.status(201).json({
                 success:true,

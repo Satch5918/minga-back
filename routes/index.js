@@ -1,4 +1,6 @@
-import express from 'express';
+
+import express, { Router } from 'express';
+
 import chapters from './chapters.route.js'
 import comics from './comics.js'
 import users from './users.route.js'
@@ -6,6 +8,10 @@ import comments from './comments.route.js'
 import author from './author.route.js'
 import companies from './companies.route.js'
 import categories from './categories.route.js'
+import admin from './admin.router.js'
+
+import mercadopago from './mercadopago.route.js'
+
 
 let router = express.Router();
 
@@ -22,5 +28,8 @@ router.use('/chapters', chapters)
 router.use('/comics', comics)
 router.use('/companies', companies)
 router.use('/categories', categories)
+router.use('/auth/role',admin)
+router.use('/donation', mercadopago)
+
 
 export default router;
