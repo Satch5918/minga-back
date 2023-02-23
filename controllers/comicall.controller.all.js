@@ -10,7 +10,6 @@ const controller = {
         let paginacion = {
             page: 1,
             limit: 34,
-
         };
         if (req.query.sort) {
             ordenamiento = {title: req.query.sort};
