@@ -9,8 +9,12 @@ import indexRouter from './routes/index.js' //rutas de index
 import { __dirname } from './utils.js'
 import { notFoundHandler } from './middlewares/notFoundHandler.js'
 import { errorHandler } from './middlewares/errorHandler.js'
+import './config/mercadopago.js'
+
+
 
 let app = express();
+
 
 // view engine setup
 app.use(express.static(path.join(__dirname, 'public')));
